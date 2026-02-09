@@ -4,11 +4,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 
-/* Route::get('/', function () {                // OR Use below way to route.
+/* Route::get('/', function () {                
     return view('home'); 
 }); */
-
+// OR
 Route::view('/', 'home');
-Route::get('/products',[ProductController::class,'abcindex'])//abcindex is function in ProductController file class.
+//abcindex is function in ProductController file class.
+Route::get('/products',[ProductController::class,'mno'])
             ->name('abc.xyz');
 

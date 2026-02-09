@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function abcindex(){
+    public function mno(){
         return view('products.index');      // in folder views sub folder products there is index file.
     }
 }
