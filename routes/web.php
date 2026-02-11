@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\CategoryController;
+use App\Models\Category;
 
 /* Route::get('/', function () {                
     return view('home'); 
 }); */
 // OR
 Route::view('/', 'home');
+Route::resource('categories', CategoryController::class);
 Route::controller(ProductController::class)->group(function(){
 //abcindex is function in ProductController file class.
 Route::get('/products',[ProductController::class,'mno'])->name('abc.xyz'); // products index page.
