@@ -9,7 +9,24 @@ use App\Http\Controllers\ProductController;
 }); */
 // OR
 Route::view('/', 'home');
+Route::controller(ProductController::class)->group(function(){
 //abcindex is function in ProductController file class.
-Route::get('/products',[ProductController::class,'mno'])
-            ->name('abc.xyz');
+Route::get('/products',[ProductController::class,'mno'])->name('abc.xyz'); // products index page.
+ 
+Route::get('/products/create','create')->name('products.create');
 
+Route::post('/products/store','store')->name('products.store');
+
+// With route binding to fetch one record
+Route::get('/products/{product}', 'show')->name('products.show');
+// With route binding to edit record
+Route::get('/products/{product}/edit', 'edit')->name('products.edit');
+// With route binding to update record
+Route::patch('/products/{product}','update')->name('products.update');
+// With route binding to delete record
+Route::delete('/products/{product}','destroy')->name('products.destroy');
+
+// OR With id Way to fetch one record
+Route::get('/products/{id}','show')->name('products.show')->where('id');
+
+});
