@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
@@ -29,6 +30,10 @@ Route::patch('/products/{product}','update')->name('products.update');
 Route::delete('/products/{product}','destroy')->name('products.destroy');
 
 // OR With id Way to fetch one record
-Route::get('/products/{id}','show')->name('products.show')->where('id');
+Route::get('/products/{id}', [ProductController::class, 'show'])
+    ->name('products.show')
+    ->where('id', '[0-9]+');
+
 
 });
+require __DIR__.'/auth.php';
